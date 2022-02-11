@@ -40,6 +40,18 @@
 /* jshint -W097 */// jshint strict:false
 'use strict';
 
+function replaceGroupAttr(inputStr, groupAttrList) {
+    match = false
+    if (ms = inputStr.match(/(groupAttr\d+)+?/g)) {
+        match = true
+        console.log(m)
+        ms.forEach(function (m){
+            inputStr = inputStr.replace(/groupAttr(\d+)/, groupAttrList[m]);
+        });
+    }
+    return [match, inputStr]
+}
+
 if (typeof systemDictionary !== 'undefined') {
     $.extend(systemDictionary, {
         'No connection to Server':  {'en': 'No connection to Server',   'de': 'Keine Verbindung zum Server', 'ru': 'Нет соединения с сервером',
@@ -1561,9 +1573,11 @@ var vis = {
             var aCount = parseInt(this.views[view].widgets[groupId].data.attrCount, 10);
             if (aCount) {
                 $.map(widget.data, function(val, key) {
-                    var m;
-                    if (typeof val === 'string' && (m = val.match(/^groupAttr(\d+)$/))) {
-                        widget.data[key] = that.views[view].widgets[groupId].data[m[0]] || '';
+                    if (typeof val === 'string') {
+                        [doesMatch, newString] = replaceGroupAttr(val, that.views[view].widgets[groupId].data)
+                        if(doesMatch) {
+                            widget.data[key] = newString || '';
+                        }
                     }
                 });
             }
