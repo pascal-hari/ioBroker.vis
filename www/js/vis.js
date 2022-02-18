@@ -41,7 +41,7 @@
 'use strict';
 
 function replaceGroupAttr(inputStr, groupAttrList) {
-    match = false
+    var match = false
     if (ms = inputStr.match(/(groupAttr\d+)+?/g)) {
         match = true
         console.log(m)
