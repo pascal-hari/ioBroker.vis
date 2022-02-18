@@ -25,7 +25,7 @@ function replaceGroupAttr(inputStr, groupAttrList) {
         });
         console.log("Replaced " + inputStr + " with " + newString + " (based on " + ms + ")")
     }
-    return [match, inputStr]
+    return [match, newString]
 }
 
 function getWidgetGroup(views, view, widget) {
