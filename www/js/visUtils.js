@@ -15,8 +15,8 @@
  */
 
  function replaceGroupAttr(inputStr, groupAttrList) {
-    var match = false
-    var ms = inputStr.match(/(groupAttr\d+)+?/g)
+    let match = false
+    let ms = inputStr.match(/(groupAttr\d+)+?/g)
     if (ms) {
         match = true
         console.log(ms)
@@ -440,7 +440,7 @@ function getUsedObjectIDs(views, isByViews) {
                             var vid = data['visibility-oid'];
                             var vgroup = getWidgetGroup(views, view, id);
                             if (vgroup) {
-                                [doesMatch, newString] = replaceGroupAttr(vid, views[view].widgets[vgroup].data)
+                                const [doesMatch, newString] = replaceGroupAttr(vid, views[view].widgets[vgroup].data)
                                 if (doesMatch) vid = newString;
                             }
 
@@ -453,7 +453,7 @@ function getUsedObjectIDs(views, isByViews) {
                             var sid = data[attr];
                             var group = getWidgetGroup(views, view, id);
                             if(group) {
-                                [doesMatch, newString] = replaceGroupAttr(sid, views[view].widgets[group].data)
+                                const [doesMatch, newString] = replaceGroupAttr(sid, views[view].widgets[group].data)
                                 if (doesMatch) sid = newString;
                             }
 
@@ -468,7 +468,7 @@ function getUsedObjectIDs(views, isByViews) {
                             var lcsid = data[attr];
                             var ggroup = getWidgetGroup(views, view, id);
                             if(ggroup) {
-                                [doesMatch, newString] = replaceGroupAttr(lcsid, views[view].widgets[ggroup].data)
+                                const [doesMatch, newString] = replaceGroupAttr(lcsid, views[view].widgets[ggroup].data)
                                 if (doesMatch) lcsid = newString;
                             }
 

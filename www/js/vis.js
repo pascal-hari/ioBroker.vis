@@ -41,8 +41,8 @@
 'use strict';
 
 function replaceGroupAttr(inputStr, groupAttrList) {
-    var match = false
-    var ms = inputStr.match(/(groupAttr\d+)+?/g)
+    let match = false
+    let ms = inputStr.match(/(groupAttr\d+)+?/g)
     if (ms) {
         match = true
         console.log(ms)
@@ -1575,7 +1575,7 @@ var vis = {
             if (aCount) {
                 $.map(widget.data, function(val, key) {
                     if (typeof val === 'string') {
-                        [doesMatch, newString] = replaceGroupAttr(val, that.views[view].widgets[groupId].data)
+                        const [doesMatch, newString] = replaceGroupAttr(val, that.views[view].widgets[groupId].data)
                         if(doesMatch) {
                             widget.data[key] = newString || '';
                         }
