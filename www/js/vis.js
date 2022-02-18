@@ -42,9 +42,10 @@
 
 function replaceGroupAttr(inputStr, groupAttrList) {
     var match = false
-    if (ms = inputStr.match(/(groupAttr\d+)+?/g)) {
+    var ms = inputStr.match(/(groupAttr\d+)+?/g)
+    if (ms) {
         match = true
-        console.log(m)
+        console.log(ms)
         ms.forEach(function (m){
             inputStr = inputStr.replace(/groupAttr(\d+)/, groupAttrList[m]);
         });
