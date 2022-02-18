@@ -19,10 +19,11 @@
     let ms = inputStr.match(/(groupAttr\d+)+?/g)
     if (ms) {
         match = true
-        console.log(ms)
+        console.log("replaceGroupAttr ms = " + ms)
         ms.forEach(function (m){
             inputStr = inputStr.replace(/groupAttr(\d+)/, groupAttrList[m]);
         });
+        console.log("replaceGroupAttr inputStr = " + inputStr)
     }
     return [match, inputStr]
 }
