@@ -14,16 +14,16 @@
  * (Free for non-commercial use).
  */
 
- function replaceGroupAttr(inputStr, groupAttrList) {
+function replaceGroupAttr(inputStr, groupAttrList) {
+    let newString = inputStr
     let match = false
     let ms = inputStr.match(/(groupAttr\d+)+?/g)
     if (ms) {
         match = true
-        console.log("replaceGroupAttr ms = " + ms)
         ms.forEach(function (m){
-            inputStr = inputStr.replace(/groupAttr(\d+)/, groupAttrList[m]);
+            newString = newString.replace(/groupAttr(\d+)/, groupAttrList[m]);
         });
-        console.log("replaceGroupAttr inputStr = " + inputStr)
+        console.log("Replaced " + inputStr + " with " + newString + " (based on " + ms + ")")
     }
     return [match, inputStr]
 }
